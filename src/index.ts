@@ -32,13 +32,13 @@ type getScreenshotArguments = {
 const config = {
   port: 3030,
   defaultOutName: "file",
-  timeout: parseInt(process.env.SCREENSHOT_TIMEOUT || "10000"),
-  restartChromeInstanceGutterTime: parseInt(
-    process.env.RESTART_HOUR || "43200000"
-  ),
-  ChromiumInstPoolSize: parseInt(process.env.CHROMIUM_NUM || "1"),
-  maxQueue: parseInt(process.env.CONCURRENCY || "10"),
-  maxRateLimit: parseInt(process.env.RATE_LIMIT || "100"),
+  timeout: parseInt(process.env.SCREENSHOT_TIMEOUT!) || 30000,
+  restartChromeInstanceGutterTime:
+    (parseInt(process.env.RESTART_HOUR!) || 12) * 1000 * 60 * 60,
+  ChromiumInstPoolSize: parseInt(process.env.CHROMIUM_NUM!) || 1,
+  maxQueue: parseInt(process.env.CONCURRENCY!) || 10,
+  maxRateLimit: parseInt(process.env.RATE_LIMIT!) || 100,
+  checkTimeInterval: 1000 * 30,
 };
 
 declare var global: ExtendsGlobal;
@@ -81,10 +81,10 @@ export async function startChromiums() {
     global.ChromiumInstPool[i] = await Puppeteer.launch({
       headless: true,
       ignoreHTTPSErrors: true,
-      defaultViewport: {
-        width: 1366,
-        height: 768,
-      },
+      // defaultViewport: {
+      //   width: 1366,
+      //   height: 768
+      // },
       args: [
         "--no-sandbox",
         "--disable-setuid-sandbox",
@@ -128,8 +128,6 @@ export async function waitRestarting() {
     });
   }
 }
-
-global.ChromiumCurrentIndex = -1;
 
 // screenshot
 export async function getScreenshot({
@@ -226,6 +224,7 @@ global.restarting = false;
 global.screenshoting = false;
 global.ChromiumInstPool = [];
 global.ServerStartTime = Date.now();
+global.ChromiumCurrentIndex = -1;
 global.queue = queue(async (c) => {
   const ctx = c.ctx;
   if (ctx.request.socket.destroyed) {
@@ -315,8 +314,6 @@ router.all("/api/screenshot", async (ctx) => {
   await global.queue.push({ params, ctx } as any);
 });
 
-const checkTimeInterval = 1000 * 30; //per 30s check
-
 async function restartInstances() {
   // timeout
   if (
@@ -344,7 +341,7 @@ async function restartInstances() {
     global.restarting = false;
     logger.info("restart completed");
   }
-  setTimeout(restartInstances, checkTimeInterval);
+  setTimeout(restartInstances, config.checkTimeInterval);
 }
 
 global.app.listen(config.port, () => {

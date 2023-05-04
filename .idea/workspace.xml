@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f192c7ec-e83f-4f97-b41e-b7cb4f2ae038" name="Changes" comment="" />
+    <list default="true" id="f192c7ec-e83f-4f97-b41e-b7cb4f2ae038" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,15 +36,17 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "go.import.settings.migrated": "true",
-    "last_opened_file_path": "/Users/eward/coder/work/compass-screenshot/fonts",
+    "last_opened_file_path": "/Users/eward/coder/mine/screenshot",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/Users/eward/coder/work/compass-screenshot/node_modules/prettier",
-    "ts.external.directory.path": "/Users/eward/coder/work/compass-screenshot/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+    "prettierjs.PrettierConfiguration.Package": "/Users/eward/coder/mine/screenshot/node_modules/prettier",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "/Users/eward/coder/mine/screenshot/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true",
+    "zielu.gittoolbox.prj.config.selected.tab.id": "zielu.gittoolbox.config.shared.commit"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -79,12 +87,19 @@
       <workItem from="1682329629708" duration="2500000" />
       <workItem from="1682573902715" duration="2151000" />
       <workItem from="1682583396216" duration="10000" />
-      <workItem from="1682646921033" duration="6968000" />
+      <workItem from="1682646921033" duration="8137000" />
+      <workItem from="1682657784043" duration="15000" />
+      <workItem from="1682657802531" duration="18000" />
+      <workItem from="1682658168586" duration="184000" />
+      <workItem from="1682661995934" duration="4373000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

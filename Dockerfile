@@ -35,7 +35,9 @@ COPY --chown=puppteer:puppteer . /app
 RUN chmod +x ./tini
 ENTRYPOINT ["./tini", "--"]
 
-RUN pnpm install && pnpm run build
+RUN yarn install
+
+RUN yarn build
 
 EXPOSE 3030
 CMD ["node", "dist/index.js"]
